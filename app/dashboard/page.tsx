@@ -71,7 +71,28 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+    <div 
+      className="min-h-screen relative overflow-hidden"
+      style={{
+        background: `
+          linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #1a1a2e 75%, #0f0f23 100%),
+          radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(135, 206, 250, 0.1) 0%, transparent 50%)
+        `
+      }}
+    >
+      {/* Animated background particles - matching layout.js */}
+      <div
+        className="fixed inset-0 pointer-events-none opacity-30"
+        style={{
+          backgroundImage: `
+            radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+            radial-gradient(circle at 75% 75%, rgba(0, 212, 255, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '100px 100px, 150px 150px'
+        }}
+      ></div>
+
       {/* Cursor Glow */}
       <div
         className="absolute w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none transition-all duration-300 ease-out"
@@ -142,7 +163,6 @@ export default function DashboardPage() {
                       <ArrowRight className="w-6 h-6 text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
                     </div>
                   </div>
-
                   <div className="p-8">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {feature.features.map((item, index) => {
@@ -162,7 +182,6 @@ export default function DashboardPage() {
                         );
                       })}
                     </div>
-
                     <div className="mt-8">
                       <button
                         className={`w-full bg-gradient-to-r ${feature.gradient} text-white font-semibold py-4 px-6 rounded-xl hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center space-x-2`}
